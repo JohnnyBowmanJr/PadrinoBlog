@@ -1,0 +1,25 @@
+<% error = @post_tag.errors.include?(:post_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :post_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :post_id, :class => 'input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:post_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @post_tag.errors.include?(:tag_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :tag_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :tag_id, :class => 'input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:tag_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:post_tags, :index), :class => 'btn' %>
+</div>

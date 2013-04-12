@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/stylesheets/bootstrap.css">
+		<link rel="stylesheet" href="/stylesheets/normalize.css">
+		<title>Quote Board</title>
+	</head>
+	
+	<body>
+		<div class="nav">
+			<table>
+				<tr class="nav-header">
+					<th>Authors</th>
+					<th>Time</th>
+					<th>Tags</th>
+				</tr>
+				<tr>	
+					<td>
+						<% Author.all.each do |author| %>
+							<%= link_to author.name, url_for(:posts, :index, {:author => author.name}) %>
+						<br />
+						<% end %>
+					</td>	
+					<td>
+						<%= link_to "Last Month", url_for(:posts, :index, {:year => "2013", :month => "March"}) %><br />
+						<%= link_to "Last Year", url_for(:posts, :index, {:year => "2012", :month => "month-dont-even-matter-at-this-point"}) %>
+					</td>
+					<td>
+						<% Tag.all.each do |tag| %>
+							<%= link_to tag.name, url_for(:posts, :index, {:tag => tag.name}) %>
+						<br />
+						<% end %>
+					</td>	
+				</tr>
+			</table>
+		</div><br />
+		<%= yield %>
+	</body>
+</html>

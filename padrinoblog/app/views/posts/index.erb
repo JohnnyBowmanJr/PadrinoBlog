@@ -1,0 +1,16 @@
+<div class="post-container">
+  <% @posts.each do |post| %>
+    <div class="post-title">
+      <%= post.title %>
+    </div>
+    <div class="post-title">
+      <%= post.author.name %>
+    </div>
+    <div class="post-title">
+      <%= post.created_at %>
+    </div>
+    <div class="post-body">
+      <%= post.body %><br /><br /><br />
+    </div>
+  <% end %>
+</div>

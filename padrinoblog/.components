@@ -7,3 +7,4 @@
 :stylesheet: none
 :namespace: PadrinoBlog
 :migration_format: number
+:admin_renderer: erb
